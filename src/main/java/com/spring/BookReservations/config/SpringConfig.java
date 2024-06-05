@@ -1,8 +1,8 @@
-package com.spring.BookRezervations.config;
+package com.spring.BookReservations.config;
 
-import com.spring.BookRezervations.repository.UserRepository;
-import com.spring.BookRezervations.service.UserService;
-import com.spring.BookRezervations.service.UserServiceImpl;
+import com.spring.BookReservations.repository.UserRepository;
+import com.spring.BookReservations.service.UserService;
+import com.spring.BookReservations.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

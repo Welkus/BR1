@@ -1,6 +1,6 @@
-package com.spring.BookRezervations.repository;
+package com.spring.BookReservations.repository;
 
-import com.spring.BookRezervations.model.User;
+import com.spring.BookReservations.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Integer> {

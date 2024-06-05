@@ -1,4 +1,4 @@
-package com.spring.BookRezervations.model;
+package com.spring.BookReservations.model;
 
 import jakarta.persistence.*;
 

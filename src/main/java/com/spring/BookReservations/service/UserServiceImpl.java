@@ -1,7 +1,7 @@
-package com.spring.BookRezervations.service;
+package com.spring.BookReservations.service;
 
-import com.spring.BookRezervations.model.User;
-import com.spring.BookRezervations.repository.UserRepository;
+import com.spring.BookReservations.model.User;
+import com.spring.BookReservations.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

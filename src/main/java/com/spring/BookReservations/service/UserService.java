@@ -1,6 +1,6 @@
-package com.spring.BookRezervations.service;
+package com.spring.BookReservations.service;
 
-import com.spring.BookRezervations.model.User;
+import com.spring.BookReservations.model.User;
 
 public interface UserService {
     void save(User user);
