@@ -47,6 +47,8 @@ public class BookController {
 
     @GetMapping("/genre")
     public String genre(Model model) {
+        List<Genre> genreList = genreService.findAll();
+        model.addAttribute("genreList", genreList);
         model.addAttribute("genre", new Genre());
         return "genre";
     }
@@ -54,7 +56,7 @@ public class BookController {
     @PostMapping("/genre")
     public String createSubmit(@ModelAttribute Genre genre, Model model) {
         genreService.save(genre);
-        return "redirect:/dashboard";
+        return "redirect:/genre";
     }
 
 }

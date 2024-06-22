@@ -21,4 +21,8 @@ public class GenreServiceImpl implements GenreService {
     public List<String> findAllGenreNames() {
         return genreRepository.findAllGenreNames();
     }
+    @Override
+    public List<Genre> findAll(){
+        return genreRepository.findAll();
+    }
 }
