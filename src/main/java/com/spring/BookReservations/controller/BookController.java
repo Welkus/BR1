@@ -10,8 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -43,20 +43,6 @@ public class BookController {
     public String createSubmit(@ModelAttribute Book book, Model model) {
         bookService.save(book);
         return "redirect:/dashboard";
-    }
-
-    @GetMapping("/genre")
-    public String genre(Model model) {
-        List<Genre> genreList = genreService.findAll();
-        model.addAttribute("genreList", genreList);
-        model.addAttribute("genre", new Genre());
-        return "genre";
-    }
-
-    @PostMapping("/genre")
-    public String createSubmit(@ModelAttribute Genre genre, Model model) {
-        genreService.save(genre);
-        return "redirect:/genre";
     }
 
 }
