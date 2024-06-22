@@ -1,6 +1,7 @@
 package com.spring.BookReservations.controller;
 
 import com.spring.BookReservations.model.Book;
+import com.spring.BookReservations.model.Genre;
 import com.spring.BookReservations.service.BookService;
 import com.spring.BookReservations.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,18 @@ public class BookController {
     @PostMapping("/create")
     public String createSubmit(@ModelAttribute Book book, Model model) {
         bookService.save(book);
+        return "dashboard";
+    }
+
+    @GetMapping("/genre")
+    public String genre(Model model) {
+        model.addAttribute("genre", new Genre());
+        return "genre";
+    }
+
+    @PostMapping("/genre")
+    public String createSubmit(@ModelAttribute Genre genre, Model model) {
+        genreService.save(genre);
         return "dashboard";
     }
 }
