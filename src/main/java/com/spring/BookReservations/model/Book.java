@@ -14,7 +14,7 @@ public class Book {
     @Column(name = "blurb")
     private String blurb;
     @Column(name = "ISBN")
-    private int ISBN;
+    private String ISBN;
     @Column(name = "picture")
     private String picture;
     @Column(name = "pages")
@@ -24,7 +24,7 @@ public class Book {
 
     public Book() {
     }
-    public Book(String title, String blurb, int ISBN, String picture, int pageCount, String genre) {
+    public Book(String title, String blurb, String ISBN, String picture, int pageCount, String genre) {
         this.title = title;
         this.blurb = blurb;
         this.ISBN = ISBN;
@@ -32,7 +32,7 @@ public class Book {
         this.pageCount = pageCount;
         this.genre = genre;
     }
-    public Book(int id, String title, String blurb, int ISBN, String picture, int pageCount, String genre) {
+    public Book(int id, String title, String blurb, String ISBN, String picture, int pageCount, String genre) {
         this.id = id;
         this.title = title;
         this.blurb = blurb;
@@ -66,11 +66,11 @@ public class Book {
         this.blurb = blurb;
     }
 
-    public int getISBN() {
+    public String getISBN() {
         return ISBN;
     }
 
-    public void setISBN(int ISBN) {
+    public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
 

@@ -23,6 +23,13 @@ public class BookController {
     @Autowired
     GenreService genreService;
 
+    @GetMapping("/dashboard")
+    public String dashboard(Model model) {
+        List<Book> bookList = bookService.getAll();
+        model.addAttribute("bookList", bookList);
+        return "dashboard";
+    }
+
     @GetMapping("/create")
     public String create(Model model) {
         List<String> genres = genreService.findAllGenreNames();
@@ -49,4 +56,5 @@ public class BookController {
         genreService.save(genre);
         return "dashboard";
     }
+
 }
