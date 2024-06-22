@@ -42,7 +42,7 @@ public class BookController {
     @PostMapping("/create")
     public String createSubmit(@ModelAttribute Book book, Model model) {
         bookService.save(book);
-        return "dashboard";
+        return "redirect:/dashboard";
     }
 
     @GetMapping("/genre")
@@ -54,7 +54,7 @@ public class BookController {
     @PostMapping("/genre")
     public String createSubmit(@ModelAttribute Genre genre, Model model) {
         genreService.save(genre);
-        return "dashboard";
+        return "redirect:/dashboard";
     }
 
 }

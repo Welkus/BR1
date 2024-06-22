@@ -59,7 +59,7 @@ public class WebSecurityConfig {
                 .formLogin(login -> login.loginPage("/login")
                         .failureUrl("/login?error=true")
                         .loginProcessingUrl("/loginUser")
-                        .defaultSuccessUrl("/test", true)
+                        .defaultSuccessUrl("/dashboard", true)
                         .permitAll())
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
