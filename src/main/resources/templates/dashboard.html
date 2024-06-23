@@ -47,6 +47,7 @@
                                     <th scope="col">ISBN</th>
                                     <th scope="col">Blurb</th>
                                     <th scope="col">Picture</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Options</th>
                                 </tr>
                                 </thead>
@@ -58,6 +59,10 @@
                                     <td th:text="${book.ISBN}" data-bs-toggle="tooltip" data-bs-placement="top" th:attr="title=${book.ISBN}"></td>
                                     <td th:text="${book.blurb}" data-bs-toggle="tooltip" data-bs-placement="top" th:attr="title=${book.blurb}"></td>
                                     <td th:text="${book.picture}"></td>
+                                    <td th:text="${book.reserved ? 'Reserved' : 'Available'}"
+                                        th:classappend="${book.reserved ? 'reserved' : 'available'}"
+                                        th:style="${book.reserved ? 'color: red;' : 'color: green;'}">
+                                    </td>
                                     <td><a th:href="@{/book/edit/{id}(id=${book.id})}" style="text-decoration: none; cursor: pointer;">Edit</a>
                                         | <span style="color: red; cursor: pointer;" th:attr="onclick='confirmDelete(\'' + ${book.id} + '\')'">Delete</span>
                                         | Reserve

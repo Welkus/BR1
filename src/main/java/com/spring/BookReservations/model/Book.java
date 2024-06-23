@@ -21,18 +21,21 @@ public class Book {
     private int pageCount;
     @Column(name = "genre")
     private String genre;
+    @Column(name = "reserved")
+    private boolean reserved;
 
     public Book() {
     }
-    public Book(String title, String blurb, String ISBN, String picture, int pageCount, String genre) {
+    public Book(String title, String blurb, String ISBN, String picture, int pageCount, String genre, boolean reserved) {
         this.title = title;
         this.blurb = blurb;
         this.ISBN = ISBN;
         this.picture = picture;
         this.pageCount = pageCount;
         this.genre = genre;
+        this.reserved = reserved;
     }
-    public Book(int id, String title, String blurb, String ISBN, String picture, int pageCount, String genre) {
+    public Book(int id, String title, String blurb, String ISBN, String picture, int pageCount, String genre, boolean reserved) {
         this.id = id;
         this.title = title;
         this.blurb = blurb;
@@ -40,6 +43,7 @@ public class Book {
         this.picture = picture;
         this.pageCount = pageCount;
         this.genre = genre;
+        this.reserved = reserved;
     }
 
     public int getId() {
@@ -97,16 +101,26 @@ public class Book {
     public void setGenre(String genre) {
         this.genre = genre;
     }
+
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", blurb='" + blurb + '\'' +
-                ", ISBN=" + ISBN +
+                ", ISBN='" + ISBN + '\'' +
                 ", picture='" + picture + '\'' +
                 ", pageCount=" + pageCount +
                 ", genre='" + genre + '\'' +
+                ", reserved=" + reserved +
                 '}';
     }
 }
