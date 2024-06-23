@@ -8,5 +8,6 @@ import java.util.Optional;
 public interface BookService {
     void save(Book book);
     List<Book> getAll();
+    void deleteById(int id);
     Optional<Book> findById(int id);
 }

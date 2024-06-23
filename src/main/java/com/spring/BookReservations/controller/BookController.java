@@ -56,5 +56,10 @@ public class BookController {
         bookService.save(book);
         return "redirect:/dashboard";
     }
+    @GetMapping("/book/delete/{id}")
+    public String deleteBook(@PathVariable("id") int id, Model model){
+        bookService.deleteById(id);
+        return "redirect:/dashboard";
+    }
 
 }

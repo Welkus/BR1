@@ -23,6 +23,10 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
+    public void deleteById(int id) {
+        bookRepository.deleteById(id);
+    }
+    @Override
     public Optional<Book> findById(int id) {
         return bookRepository.findById(id);
     }
