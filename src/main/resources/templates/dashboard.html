@@ -53,7 +53,7 @@
                                     <td th:text="${book.ISBN}"></td>
                                     <td th:text="${book.blurb}"></td>
                                     <td th:text="${book.picture}"></td>
-                                    <td>Edit | Delete | View | Reserve | Like</td>
+                                    <td><a th:href="@{/book/edit/{id}(id=${book.id})}" style="text-decoration: none; cursor: pointer;">Edit</a> | Delete | View | Reserve | Like</td>
                                 </tr>
                                 </tbody>
                             </table>
