@@ -30,4 +30,9 @@ public class BookServiceImpl implements BookService{
     public Optional<Book> findById(int id) {
         return bookRepository.findById(id);
     }
+
+    @Override
+    public List<Book> findBooksByTitle(String query) {
+        return bookRepository.findByTitleContainingIgnoreCase(query);
+    }
 }

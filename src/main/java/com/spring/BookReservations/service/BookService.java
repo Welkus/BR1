@@ -10,4 +10,5 @@ public interface BookService {
     List<Book> getAll();
     void deleteById(int id);
     Optional<Book> findById(int id);
+    List<Book> findBooksByTitle(String query);
 }
