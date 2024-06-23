@@ -65,7 +65,7 @@
                                     </td>
                                     <td><a th:href="@{/book/edit/{id}(id=${book.id})}" style="text-decoration: none; cursor: pointer;">Edit</a>
                                         | <span style="color: red; cursor: pointer;" th:attr="onclick='confirmDelete(\'' + ${book.id} + '\')'">Delete</span>
-                                        | Reserve
+                                        | <a th:href="@{/book/reserve/{bookId}/{userId}(bookId=${book.id}, userId=${#authentication.principal.id})}" style="text-decoration: none; cursor: pointer; color: gray;">Reserve</a>
                                         | Like</td>
                                 </tr>
                                 </tbody>

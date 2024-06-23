@@ -64,5 +64,16 @@ public class BookController {
         model.addAttribute("bookList", filteredBooks);
         return "dashboard";
     }
+    @GetMapping("/book/reserve/{bookId}/{userId}")
+    public String deleteBook(@PathVariable("bookId") int bookId, @PathVariable("userId") int userId){
+        Optional<Book> optionalBook = bookService.findById(bookId);
+        if (optionalBook.isPresent()) {
+            Book book = optionalBook.get();
+            book.setReservationId(userId);
+            book.setReserved(true);
+            bookService.save(book);
+        }
+        return "redirect:/dashboard";
+    }
 
 }

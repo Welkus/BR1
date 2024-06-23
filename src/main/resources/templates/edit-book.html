@@ -57,7 +57,10 @@
                                     <label for="genre" class="form-label text-dark">Genre</label>
                                 </div>
                                 <div>
-                                    <input type="hidden" class="form-control" th:field="*{reserved}" value="false">
+                                    <input type="hidden" class="form-control" th:field="*{reserved}">
+                                </div>
+                                <div>
+                                    <input type="hidden" class="form-control" th:field="*{reservationId}">
                                 </div>
                                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>

@@ -23,10 +23,12 @@ public class Book {
     private String genre;
     @Column(name = "reserved")
     private boolean reserved;
+    @Column(name = "reservation_id")
+    private int reservationId;
 
     public Book() {
     }
-    public Book(String title, String blurb, String ISBN, String picture, int pageCount, String genre, boolean reserved) {
+    public Book(String title, String blurb, String ISBN, String picture, int pageCount, String genre, boolean reserved, int reservationId) {
         this.title = title;
         this.blurb = blurb;
         this.ISBN = ISBN;
@@ -34,8 +36,9 @@ public class Book {
         this.pageCount = pageCount;
         this.genre = genre;
         this.reserved = reserved;
+        this.reservationId = reservationId;
     }
-    public Book(int id, String title, String blurb, String ISBN, String picture, int pageCount, String genre, boolean reserved) {
+    public Book(int id, String title, String blurb, String ISBN, String picture, int pageCount, String genre, boolean reserved, int reservationId) {
         this.id = id;
         this.title = title;
         this.blurb = blurb;
@@ -44,6 +47,7 @@ public class Book {
         this.pageCount = pageCount;
         this.genre = genre;
         this.reserved = reserved;
+        this.reservationId = reservationId;
     }
 
     public int getId() {
@@ -110,6 +114,14 @@ public class Book {
         this.reserved = reserved;
     }
 
+    public int getReservationId() {
+        return reservationId;
+    }
+
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -121,6 +133,7 @@ public class Book {
                 ", pageCount=" + pageCount +
                 ", genre='" + genre + '\'' +
                 ", reserved=" + reserved +
+                ", reservationId=" + reservationId +
                 '}';
     }
 }
