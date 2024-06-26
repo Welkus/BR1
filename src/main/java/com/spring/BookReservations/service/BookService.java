@@ -12,4 +12,5 @@ public interface BookService {
     Optional<Book> findById(int id);
     List<Book> findBooksByTitle(String query);
     List<Book> findBooksByReservationId(int id);
+    List<Book> findByIdIn(List<Integer> ids);
 }

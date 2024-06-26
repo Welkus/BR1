@@ -3,6 +3,7 @@ package com.spring.BookReservations.controller;
 import com.spring.BookReservations.model.Book;
 import com.spring.BookReservations.service.BookService;
 import com.spring.BookReservations.service.CustomUserDetails;
+import com.spring.BookReservations.service.FavoriteService;
 import com.spring.BookReservations.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -21,6 +22,8 @@ public class BookController {
 
     @Autowired
     GenreService genreService;
+    @Autowired
+    FavoriteService favoriteService;
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
@@ -81,7 +84,9 @@ public class BookController {
     public String account(Model model, @AuthenticationPrincipal CustomUserDetails customUserDetails) {
         int userId = customUserDetails.getId();
         List<Book> reservedBooks = bookService.findBooksByReservationId(userId);
+        List<Book> favoriteBooks = bookService.findByIdIn(favoriteService.findAllBookIdsByUserId(userId));
         model.addAttribute("reservedBooks", reservedBooks);
+        model.addAttribute("favoriteBooks", favoriteBooks);
         return "account";
     }
     @GetMapping("/account/unreserve/{id}")

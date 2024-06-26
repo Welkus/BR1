@@ -40,4 +40,9 @@ public class BookServiceImpl implements BookService{
     public List<Book> findBooksByReservationId(int id) {
         return bookRepository.findByReservationId(id);
     }
+
+    @Override
+    public List<Book> findByIdIn(List<Integer> ids) {
+        return bookRepository.findByIdIn(ids);
+    }
 }

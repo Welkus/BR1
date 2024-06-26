@@ -69,7 +69,7 @@
                                             <tbody>
                                             <tr th:each="book : ${favoriteBooks}">
                                                 <td th:text="${book.title}" data-bs-toggle="tooltip" data-bs-placement="top" th:attr="title=${book.title}"></td>
-                                                <td th:text="${book.reserved}" style="color: red"></td>
+                                                <td><a th:href="@{/account/unlike/{id}(id=${book.id})}" style="color: red; text-decoration: none;">Unlike</a></td>
                                             </tr>
                                             </tbody>
                                         </table>
