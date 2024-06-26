@@ -2,8 +2,10 @@ package com.spring.BookReservations.controller;
 
 import com.spring.BookReservations.model.Book;
 import com.spring.BookReservations.service.BookService;
+import com.spring.BookReservations.service.CustomUserDetails;
 import com.spring.BookReservations.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -67,13 +69,31 @@ public class BookController {
     @GetMapping("/book/reserve/{bookId}/{userId}")
     public String deleteBook(@PathVariable("bookId") int bookId, @PathVariable("userId") int userId){
         Optional<Book> optionalBook = bookService.findById(bookId);
-        if (optionalBook.isPresent()) {
+        if (optionalBook.isPresent() && !optionalBook.get().isReserved()) {
             Book book = optionalBook.get();
             book.setReservationId(userId);
             book.setReserved(true);
             bookService.save(book);
         }
         return "redirect:/dashboard";
+    }
+    @GetMapping("/account")
+    public String account(Model model, @AuthenticationPrincipal CustomUserDetails customUserDetails) {
+        int userId = customUserDetails.getId();
+        List<Book> reservedBooks = bookService.findBooksByReservationId(userId);
+        model.addAttribute("reservedBooks", reservedBooks);
+        return "account";
+    }
+    @GetMapping("/account/unreserve/{id}")
+    public String removeReservation(@PathVariable("id") int id){
+        Optional<Book> optionalBook = bookService.findById(id);
+        if (optionalBook.isPresent()) {
+            Book book = optionalBook.get();
+            book.setReservationId(0);
+            book.setReserved(false);
+            bookService.save(book);
+        }
+        return "redirect:/account";
     }
 
 }

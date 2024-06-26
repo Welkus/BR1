@@ -11,4 +11,5 @@ public interface BookService {
     void deleteById(int id);
     Optional<Book> findById(int id);
     List<Book> findBooksByTitle(String query);
+    List<Book> findBooksByReservationId(int id);
 }
