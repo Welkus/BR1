@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -63,11 +63,15 @@
                                         th:classappend="${book.reserved ? 'reserved' : 'available'}"
                                         th:style="${book.reserved ? 'color: red;' : 'color: green;'}">
                                     </td>
-                                    <td><a th:href="@{/book/edit/{id}(id=${book.id})}" style="text-decoration: none; cursor: pointer;">Edit</a>
-                                        | <span style="color: red; cursor: pointer;" th:attr="onclick='confirmDelete(\'' + ${book.id} + '\')'">Delete</span>
-                                        | <a th:href="@{/book/reserve/{bookId}/{userId}(bookId=${book.id}, userId=${#authentication.principal.id})}" style="text-decoration: none; cursor: pointer; color: gray;">Reserve</a>
-                                        | <a th:href="@{/book/favorite/{bookId}/{userId}(bookId=${book.id}, userId=${#authentication.principal.id})}" style="text-decoration: none; cursor: pointer; color: purple;">Like</a></td>
-                                </tr>
+                                    <td>
+                                        <span sec:authorize="hasAuthority('ADMIN')">
+                                            <a th:href="@{/book/edit/{id}(id=${book.id})}" style="text-decoration: none; cursor: pointer;">Edit</a> |
+                                            <span style="color: red; cursor: pointer;" th:attr="onclick='confirmDelete(\'' + ${book.id} + '\')'">Delete</span> |
+                                        </span>
+                                        <a th:href="@{/book/reserve/{bookId}/{userId}(bookId=${book.id}, userId=${#authentication.principal.id})}" style="text-decoration: none; cursor: pointer; color: gray;">Reserve</a> |
+                                        <a th:href="@{/book/favorite/{bookId}/{userId}(bookId=${book.id}, userId=${#authentication.principal.id})}" style="text-decoration: none; cursor: pointer; color: purple;">Like</a>
+                                    </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
