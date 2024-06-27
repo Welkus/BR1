@@ -21,10 +21,13 @@
                     <a class="nav-link" href="/account">Account</a>
                 </li>
                 <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
-                    <a class="nav-link" href="/genre">Manage Genres</a>
+                    <a class="nav-link" href="/restaurant/create">Add restaurants</a>
                 </li>
                 <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
-                    <a class="nav-link" href="/create">Add Book</a>
+                    <a class="nav-link" href="/menu/create">Add menu</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
+                    <a class="nav-link" href="/dish/create">Add dish</a>
                 </li>
                 <li class="nav-item">
                     <span class="nav-link text-white">Logged in as: <span th:text="${#authentication.name}"></span> (<span th:text="${#authentication.principal.authorities[0].authority}"></span>)</span>
